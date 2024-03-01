@@ -9,13 +9,8 @@ trigger:
 pool:
   vmImage: 'windows-latest'
 
-stages:
-- stage: 'Powershell'
-  jobs:
-  - job: 'Powershell'
-    displayName: 'Inline Powershell'
-  
-    steps:
+
+  steps:
     - task: PowerShell@2
       displayName: 'Inline Powershell'
       inputs:
