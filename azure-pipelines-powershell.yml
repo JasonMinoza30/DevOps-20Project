@@ -11,10 +11,11 @@ pool:
 
 jobs:
 - job: Job1
+  pool: server
   steps:
   - task: ManualValidation@0
     inputs:
-      notifyUsers: 'all'
+      notifyUsers: 'email@example.com'
       instructions: 'Continue?'
 
 - job: Job2
