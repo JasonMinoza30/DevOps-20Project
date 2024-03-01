@@ -1,1 +1,5 @@
-write host "powershell script"
+param(
+    [string] $message = "Hello World"
+)
+
+Write-Output $message
