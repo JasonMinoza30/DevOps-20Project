@@ -9,28 +9,30 @@ trigger:
 pool:
   vmImage: 'windows-latest'
 
-steps:
-- task: PowerShell@2
-  displayName: 'Inline Powershell'
-  inputs:
-    targetType: 'inline'
-    script: |
-      # Write your PowerShell commands here.
-      
-      Write-Host "Hello World"
+jobs:
+- job: Job1
+  steps:
+  - task: ManualValidation@0
+    inputs:
+      notifyUsers: 'all'
+      instructions: 'Continue?'
 
-- task: PowerShell@2
-  displayName: 'Powershell Script'
-  inputs:
-    filePath: 'powershell.ps1'  
+- job: Job2
+  steps:
+  - task: PowerShell@2
+    displayName: 'Inline Powershell'
+    inputs:
+      targetType: 'inline'
+      script: |
+        # Write your PowerShell commands here.
+        
+        Write-Host "Hello World"
 
-- task: PowerShell@2
-  displayName: 'Approved Powershell'
-  inputs:
-    targetType: 'inline'
-    script: |
-      # Some approval process script here.
-      
-      Write-Host "Deployment Approved"
+  - task: PowerShell@2
+    displayName: 'Powershell Script'
+    inputs:
+      filePath: 'powershell.ps1'  
+
+
 
 
