@@ -19,7 +19,6 @@ jobs:
       instructions: 'Continue?'
 
 - job: Job2
-  dependsOn: Job1
   steps:
   - task: PowerShell@2
     displayName: 'Inline Powershell'
